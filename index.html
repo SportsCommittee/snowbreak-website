@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNOWBREAK'27 | Türkiye'nin İlk Üniversite Kış Festivali</title>
+    <meta name="description" content="SnowBreak'27 — Türkiye'nin ilk üniversite kış festivali 32 yıllık geleneğiyle 13-17 Ocak 2027'de Bansko'da!">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>❄</text></svg>">
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        ice: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0ea5e9',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                            950: '#082f49',
+                        },
+                        accent: {
+                            500: '#f97316', // Vibrant Orange
+                            600: '#ea580c',
+                        }
+                    },
+                    backgroundImage: {
+                        'hero-pattern': "linear-gradient(to bottom, rgba(8, 47, 73, 0.6), rgba(8, 47, 73, 0.9)), url('https://images.unsplash.com/photo-1605540436563-5bca919ae766?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom scrollbar for a polished look */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #082f49;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #0ea5e9;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #f97316;
+        }
+        /* Modal Scrollbar */
+        .modal-scroll::-webkit-scrollbar { width: 8px; }
+        /* Prevent background scroll when modal is open */
+        body.modal-open { overflow: hidden; }
+        .gpu-accelerated { transform: translateZ(0); will-change: transform; }
+        .grid-item-contain { contain: layout paint style; }
+    </style>
+</head>
+<body class="font-sans text-ice-50 bg-ice-950 overflow-x-hidden relative">
+
+    <!-- Header / Navbar -->
+    <header id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 bg-transparent py-4 gpu-accelerated">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-2xl font-black text-white tracking-tighter flex items-center gap-2">
+                        <i class="fa-solid fa-snowflake text-ice-500"></i>
+                        SNOWBREAK<span class="text-accent-500">'27</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex space-x-8 items-center">
+                    <a href="#hakkinda" class="text-sm font-semibold text-gray-200 hover:text-white transition-colors">Hakkında</a>
+                    <a href="#otel" class="text-sm font-semibold text-gray-200 hover:text-white transition-colors">Oteller</a>
+                    <a href="#galeri" class="text-sm font-semibold text-gray-200 hover:text-white transition-colors">Galeri</a>
+                    <a href="#" class="bg-accent-500 hover:bg-accent-600 text-white px-5 py-2 rounded-full font-bold transition-transform transform hover:scale-105 shadow-lg shadow-accent-500/30">
+                        Kayıt Ol
+                    </a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" aria-label="Menüyü aç" class="text-gray-200 hover:text-white focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-ice-950 absolute w-full left-0 top-full shadow-xl border-t border-ice-900">
+            <div class="px-4 pt-2 pb-6 space-y-2 flex flex-col">
+                <a href="#hakkinda" class="block px-3 py-3 rounded-md text-base font-medium text-white hover:bg-ice-900 transition-colors">Hakkında</a>
+                <a href="#otel" class="block px-3 py-3 rounded-md text-base font-medium text-white hover:bg-ice-900 transition-colors">Oteller</a>
+                <a href="#galeri" class="block px-3 py-3 rounded-md text-base font-medium text-white hover:bg-ice-900 transition-colors">Galeri</a>
+                <a href="#" class="block px-3 py-3 mt-4 text-center rounded-md text-base font-bold text-white bg-accent-500 hover:bg-accent-600 transition-colors">Kayıt Ol</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section (Fog Opacity set to 10%, 20%, 35%) -->
+    <section class="relative min-h-screen flex items-center justify-center bg-hero-pattern bg-cover bg-center bg-no-repeat md:bg-fixed">
+        <div class="absolute inset-0 bg-gradient-to-b from-ice-950/10 via-ice-900/20 to-ice-950/35"></div>
+
+        <div class="relative z-10 text-center px-4 max-w-5xl mx-auto w-full pt-24 pb-16">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-ice-500/30 bg-ice-900/50 backdrop-blur-sm mb-5 animate-pulse">
+                <span class="w-2 h-2 rounded-full bg-accent-500"></span>
+                <span class="text-xs md:text-sm font-semibold tracking-wide text-ice-100">32 YILLIK GELENEK</span>
+            </div>
+
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-4 tracking-tighter drop-shadow-2xl">
+                SNOWBREAK<span class="text-accent-500">'27</span>
+            </h1>
+
+            <p class="text-lg md:text-2xl font-semibold text-ice-50 mb-6 max-w-3xl mx-auto leading-tight drop-shadow-md">
+                TÜRKİYE'NİN İLK ÜNİVERSİTE KIŞ FESTİVALİ BU KEZ BANSKO'DA!
+            </p>
+
+            <div class="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-4 text-base md:text-xl font-medium mb-8 text-ice-100">
+                <div class="flex items-center gap-2 bg-ice-900/60 backdrop-blur-md py-2 px-6 rounded-lg border border-ice-800">
+                    <i class="fa-regular fa-calendar text-accent-500"></i>
+                    13-17 Ocak 2027
+                </div>
+                <div class="hidden md:block text-ice-500">•</div>
+                <div class="flex items-center gap-2 bg-ice-900/60 backdrop-blur-md py-2 px-6 rounded-lg border border-ice-800">
+                    <i class="fa-solid fa-location-dot text-accent-500"></i>
+                    BANSKO, BULGARİSTAN
+                </div>
+            </div>
+
+            <!-- Countdown -->
+            <div class="max-w-2xl mx-auto mb-8">
+                <p class="text-xs md:text-sm font-bold tracking-[0.3em] text-ice-100/80 uppercase mb-3">Snowbreak'27'ye Son</p>
+                <div class="grid grid-cols-4 gap-2 md:gap-4">
+                    <div class="bg-ice-950/80 backdrop-blur-md py-3 md:py-5 rounded-xl border border-ice-800 shadow-xl shadow-ice-950/50">
+                        <div id="days" class="text-3xl md:text-5xl font-black text-accent-500 font-mono">00</div>
+                        <div class="text-[10px] md:text-sm font-semibold text-ice-100 uppercase tracking-wider mt-1">Gün</div>
+                    </div>
+                    <div class="bg-ice-950/80 backdrop-blur-md py-3 md:py-5 rounded-xl border border-ice-800 shadow-xl shadow-ice-950/50">
+                        <div id="hours" class="text-3xl md:text-5xl font-black text-ice-50 font-mono">00</div>
+                        <div class="text-[10px] md:text-sm font-semibold text-ice-100 uppercase tracking-wider mt-1">Saat</div>
+                    </div>
+                    <div class="bg-ice-950/80 backdrop-blur-md py-3 md:py-5 rounded-xl border border-ice-800 shadow-xl shadow-ice-950/50">
+                        <div id="minutes" class="text-3xl md:text-5xl font-black text-ice-50 font-mono">00</div>
+                        <div class="text-[10px] md:text-sm font-semibold text-ice-100 uppercase tracking-wider mt-1">Dakika</div>
+                    </div>
+                    <div class="bg-ice-950/80 backdrop-blur-md py-3 md:py-5 rounded-xl border border-ice-800 shadow-xl shadow-ice-950/50">
+                        <div id="seconds" class="text-3xl md:text-5xl font-black text-ice-50 font-mono">00</div>
+                        <div class="text-[10px] md:text-sm font-semibold text-ice-100 uppercase tracking-wider mt-1">Saniye</div>
+                    </div>
+                </div>
+            </div>
+
+            <a href="#" class="inline-block bg-accent-500 hover:bg-accent-600 text-white text-base md:text-xl font-bold py-3 md:py-4 px-8 md:px-10 rounded-full transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 shadow-[0_0_40px_rgba(249,115,22,0.4)]">
+                KAYIT OL
+            </a>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 animate-bounce hidden md:block">
+            <a href="#hakkinda" class="text-ice-500 hover:text-white transition-colors">
+                <i class="fa-solid fa-chevron-down text-3xl drop-shadow-lg"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Falling Snow Container (spans Hakkında, Oteller, and Galeri sections) -->
+    <div id="snow-wrapper" class="relative w-full">
+        <!-- Canvas layer for smooth falling snow -->
+        <canvas id="snow-canvas" class="absolute inset-0 pointer-events-none z-30 w-full h-full"></canvas>
+
+        <!-- Hakkında (About) Section -->
+        <section id="hakkinda" class="min-h-screen flex items-center py-24 bg-ice-950 relative overflow-hidden">
+            <div class="absolute top-10 left-10 text-ice-800 opacity-20 text-6xl transform rotate-12"><i class="fa-solid fa-snowflake"></i></div>
+            <div class="absolute bottom-20 right-10 text-ice-800 opacity-20 text-8xl transform -rotate-12"><i class="fa-solid fa-snowflake"></i></div>
+            <div class="absolute top-1/2 right-1/4 text-ice-800 opacity-10 text-5xl transform rotate-45 hidden lg:block"><i class="fa-solid fa-snowflake"></i></div>
+
+            <div class="max-w-5xl mx-auto px-4 relative z-20 text-center w-full">
+                <h2 class="text-4xl md:text-5xl font-black text-white mb-8 inline-block relative">
+                    Hakkında
+                    <div class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-accent-500 rounded-full"></div>
+                </h2>
+
+                <div class="bg-ice-900/50 backdrop-blur-sm p-8 md:p-12 rounded-3xl border border-ice-800 shadow-2xl mt-12 space-y-8">
+                    <p class="text-lg md:text-2xl leading-relaxed font-light text-ice-50">
+                        <strong class="font-bold text-white">Yılın o zamanı yine geldi!</strong> <span class="text-2xl">🏂</span>
+                        Boğaziçi Üniversitesi Spor Kurulu'nun geleneksel kış festivali SnowBreak,
+                        <span class="font-semibold text-accent-500">32 yıllık geleneğiyle</span> karşınızda!
+                    </p>
+                    <p class="text-lg md:text-2xl leading-relaxed font-light text-ice-50">
+                        <strong class="font-bold text-white">Türkiye'nin ilk üniversite kış festivali</strong> olan SnowBreak;
+                        konserler, doyasıya spor ve partilerle sınırsız eğlenceyi bir araya getiriyor. 1993'ten bugüne on binlerce
+                        üniversiteliyi zirvede buluşturan bu gelenek, bu sene <span class="font-semibold text-accent-500">13-17 Ocak</span>
+                        tarihleri arasında Balkanlar'ın gözde kayak merkezi <span class="font-semibold text-white">Bansko</span>'da,
+                        <span class="font-semibold text-white">Belvedere Holiday Club</span> ve
+                        <span class="font-semibold text-white">Maria-Antoaneta Residence</span>'ta seni bekliyor.
+                    </p>
+                    <p class="text-lg md:text-2xl leading-relaxed font-light text-ice-50">
+                        Sen de SnowBreak'e gel; kayak ve snowboard yarışları, gece kayağı, after ski partileri ve lobi
+                        animasyonlarıyla <strong class="text-white">4 gece 5 gün boyunca kış sporlarının ve eğlencenin tadını zirvede çıkar!</strong>
+                        <span class="text-2xl text-ice-500">❄</span>
+                    </p>
+
+                    <!-- Quick stats -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6 border-t border-ice-800">
+                        <div class="p-4">
+                            <div class="text-3xl md:text-4xl font-black text-accent-500">32</div>
+                            <div class="text-sm md:text-base font-semibold text-ice-100 mt-1">Yıllık Gelenek</div>
+                        </div>
+                        <div class="p-4">
+                            <div class="text-3xl md:text-4xl font-black text-accent-500">1.</div>
+                            <div class="text-sm md:text-base font-semibold text-ice-100 mt-1">Üniversite Kış Festivali</div>
+                        </div>
+                        <div class="p-4">
+                            <div class="text-3xl md:text-4xl font-black text-accent-500">4G/5G</div>
+                            <div class="text-sm md:text-base font-semibold text-ice-100 mt-1">4 Gece 5 Gün</div>
+                        </div>
+                        <div class="p-4">
+                            <div class="text-3xl md:text-4xl font-black text-accent-500">2</div>
+                            <div class="text-sm md:text-base font-semibold text-ice-100 mt-1">Otel: Belvedere &amp; Maria</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Oteller (Hotels) Section -->
+        <section id="otel" class="py-24 bg-ice-900/90 relative z-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-black text-white mb-4 relative inline-block">
+                        Otellerimiz
+                        <div class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-accent-500 rounded-full"></div>
+                    </h2>
+                    <p class="text-ice-100 mt-8 text-lg max-w-2xl mx-auto">SnowBreak'27'de Bansko'nun kayak merkezine birkaç dakikalık yürüme mesafesindeki iki otelimizde konaklayacağız.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12">
+
+                    <!-- Belvedere Holiday Club -->
+                    <div class="bg-ice-950 rounded-3xl border border-ice-800 overflow-hidden shadow-2xl flex flex-col">
+                        <div class="relative overflow-hidden group">
+                            <img
+                                src="https://belvedereholidayclub.eu/wp-content/uploads/2021/06/belvedere-holiday-club.jpg"
+                                alt="Belvedere Holiday Club, Bansko"
+                                width="800" height="450"
+                                loading="lazy" decoding="async"
+                                class="w-full h-64 md:h-80 object-cover transition-transform duration-700 group-hover:scale-105"
+                            />
+                            <div class="absolute inset-0 bg-gradient-to-t from-ice-950/80 to-transparent"></div>
+                            <h3 class="absolute bottom-4 left-6 text-2xl md:text-3xl font-black text-white drop-shadow-lg">Belvedere Holiday Club</h3>
+                        </div>
+                        <div class="p-6 md:p-8 flex flex-col flex-1">
+                            <p class="text-base md:text-lg text-ice-100 leading-relaxed font-light">
+                                Bansko'nun teleferik istasyonuna <strong class="text-white">sadece 4 dakikalık yürüme mesafesindeki</strong>
+                                Belvedere Holiday Club; tek ve çift yatak odalı daireleri, geniş iç mekânları ve yemyeşil peyzaj alanlarıyla
+                                kapalı bir tatil kompleksi. Avrupa mutfağından lezzetler sunan restoranı, kapalı ve açık havuzları,
+                                sauna ve hamam içeren relax alanıyla konaklamayı bir keyfe dönüştürüyor.
+                            </p>
+                            <ul class="space-y-3 mt-6">
+                                <li class="flex items-center gap-3 text-ice-50 font-medium text-sm md:text-base">
+                                    <div class="w-8 h-8 rounded-full bg-ice-800 flex items-center justify-center text-accent-500 flex-shrink-0">
+                                        <i class="fa-solid fa-person-skiing"></i>
+                                    </div>
+                                    Teleferiğe 4 dk yürüme + kışın ücretsiz lift servisi
+                                </li>
+                                <li class="flex items-center gap-3 text-ice-50 font-medium text-sm md:text-base">
+                                    <div class="w-8 h-8 rounded-full bg-ice-800 flex items-center justify-center text-accent-500 flex-shrink-0">
+                                        <i class="fa-solid fa-utensils"></i>
+                                    </div>
+                                    Açık büfe restoran (Avrupa mutfağı)
+                                </li>
+                                <li class="flex items-center gap-3 text-ice-50 font-medium text-sm md:text-base">
+                                    <div class="w-8 h-8 rounded-full bg-ice-800 flex items-center justify-center text-accent-500 flex-shrink-0">
+                                        <i class="fa-solid fa-spa"></i>
+                                    </div>
+                                    Kapalı &amp; açık havuz, sauna, buhar banyosu, hamam, jakuzi
+                                </li>
+                                <li class="flex items-center gap-3 text-ice-50 font-medium text-sm md:text-base">
+                                    <div class="w-8 h-8 rounded-full bg-ice-800 flex items-center justify-center text-accent-500 flex-shrink-0">
+                                        <i class="fa-solid fa-dumbbell"></i>
+                                    </div>
+                                    Spor salonu &amp; ücretsiz otopark
+                                </li>
+                            </ul>
+                            <a href="https://belvedereholidayclub.eu/" target="_blank" rel="noopener" class="mt-auto pt-6 inline-flex items-center gap-2 text-accent-500 hover:text-accent-600 font-bold transition-colors">
+                                Otelin sitesini ziyaret et <i class="fa-solid fa-arrow-up-right-from-square text-sm"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Maria-Antoaneta Residence -->
+                    <div class="bg-ice-950 rounded-3xl border border-ice-800 overflow-hidden shadow-2xl flex flex-col">
+                        <div class="relative overflow-hidden group">
+                            <img
+                                src="https://www.maria-antoaneta-residence.com/photos/maria-antoaneta-residence_874_00_640.jpg"
+                                alt="Maria-Antoaneta Residence, Bansko"
+                                width="800" height="450"
+                                loading="lazy" decoding="async"
+                                class="w-full h-64 md:h-80 object-cover transition-transform duration-700 group-hover:scale-105"
+                            />
+                            <div class="absolute inset-0 bg-gradient-to-t from-ice-950/80 to-transparent"></div>
+                            <h3 class="absolute bottom-4 left-6 text-2xl md:text-3xl font-black text-white drop-shadow-lg">Maria-Antoaneta Residence</h3>
+                        </div>
+                        <div class="p-6 md:p-8 flex flex-col flex-1">
+                            <p class="text-base md:text-lg text-ice-100 leading-relaxed font-light">
+                                Nehrin hemen yanında konumlanan Maria-Antoaneta Residence, <strong class="text-white">kayak liftlerine ve
+                                Bansko Mall'a 3 dakikalık (180 m) yürüme mesafesinde.</strong> Dağ ve nehir manzaralı yemek salonunda
+                                açık büfe kahvaltı, kapalı havuz, fitness ve Türk hamamı dahil zengin spa olanaklarıyla
+                                73 odasıyla festival konaklamamızın ikinci adresi.
+                            </p>
+                            <ul class="space-y-3 mt-6">
+                                <li class="flex items-center gap-3 text-ice-50 font-medium text-sm md:text-base">
+                                    <div class="w-8 h-8 rounded-full bg-ice-800 flex items-center justify-center text-accent-500 flex-shrink-0">
+                                        <i class="fa-solid fa-person-skiing"></i>
+                                    </div>
+                                    Kayak liftine 180 m, merkeze 1 km
+                                </li>
+                                <li class="flex items-center gap-3 text-ice-50 font-medium text-sm md:text-base">
+                                    <div class="w-8 h-8 rounded-full bg-ice-800 flex items-center justify-center text-accent-500 flex-shrink-0">
+                                        <i class="fa-solid fa-mug-hot"></i>
+                                    </div>
+                                    Dağ &amp; nehir manzaralı salonda açık büfe kahvaltı
+                                </li>
+                                <li class="flex items-center gap-3 text-ice-50 font-medium text-sm md:text-base">
+                                    <div class="w-8 h-8 rounded-full bg-ice-800 flex items-center justify-center text-accent-500 flex-shrink-0">
+                                        <i class="fa-solid fa-hot-tub-person"></i>
+                                    </div>
+                                    Kapalı havuz, Finlandiya saunası, buhar banyosu, Türk hamamı
+                                </li>
+                                <li class="flex items-center gap-3 text-ice-50 font-medium text-sm md:text-base">
+                                    <div class="w-8 h-8 rounded-full bg-ice-800 flex items-center justify-center text-accent-500 flex-shrink-0">
+                                        <i class="fa-solid fa-wifi"></i>
+                                    </div>
+                                    Ücretsiz Wi-Fi, fitness &amp; otopark
+                                </li>
+                            </ul>
+                            <a href="https://www.maria-antoaneta-residence.com/" target="_blank" rel="noopener" class="mt-auto pt-6 inline-flex items-center gap-2 text-accent-500 hover:text-accent-600 font-bold transition-colors">
+                                Otelin sitesini ziyaret et <i class="fa-solid fa-arrow-up-right-from-square text-sm"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Galeri (Gallery Categories) Section -->
+        <section id="galeri" class="py-24 bg-ice-950 relative z-20">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-4xl md:text-5xl font-black text-white mb-4 relative inline-block">
+                    Tarihten Kareler
+                    <div class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-accent-500 rounded-full"></div>
+                </h2>
+                <p class="text-ice-100 mt-8 mb-16 text-lg">Geçmiş SnowBreak efsanelerinin coşkusunu keşfetmek için bir kategori seçin.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-4xl mx-auto">
+                    
+                    <!-- Bansko Category (15 Photos) -->
+                    <div onclick="openGallery('bansko')" class="relative h-80 md:h-96 rounded-3xl overflow-hidden group cursor-pointer shadow-2xl">
+                        <div class="absolute inset-0 bg-ice-900 animate-pulse"></div>
+                        <img src="bansko/bansko (1).webp" alt="Bansko Gallery" class="relative z-10 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute z-20 inset-0 bg-gradient-to-t from-ice-950 via-ice-950/40 to-transparent flex flex-col justify-end p-8">
+                            <span class="text-white font-black text-4xl mb-2 drop-shadow-lg">Bansko</span>
+                            <span class="text-accent-500 font-semibold text-lg flex items-center gap-2">
+                                15 Fotoğraf <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-2"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Uludağ Category (23 Photos) -->
+                    <div onclick="openGallery('uludag')" class="relative h-80 md:h-96 rounded-3xl overflow-hidden group cursor-pointer shadow-2xl">
+                        <div class="absolute inset-0 bg-ice-900 animate-pulse"></div>
+                        <img src="uludag/uludag (1).webp" alt="Uludağ Gallery" class="relative z-10 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute z-20 inset-0 bg-gradient-to-t from-ice-950 via-ice-950/40 to-transparent flex flex-col justify-end p-8">
+                            <span class="text-white font-black text-4xl mb-2 drop-shadow-lg">Uludağ</span>
+                            <span class="text-accent-500 font-semibold text-lg flex items-center gap-2">
+                                23 Fotoğraf <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-2"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Gallery Modal -->
+    <div id="gallery-modal" class="fixed inset-0 z-[100] bg-ice-950/95 backdrop-blur-md hidden overflow-y-auto transition-opacity">
+        <div class="min-h-screen px-4 py-8 max-w-7xl mx-auto relative flex flex-col">
+            <!-- Modal Header -->
+            <div class="flex justify-between items-center mb-8 sticky top-0 bg-ice-950/90 backdrop-blur-md p-4 rounded-2xl z-10 border border-ice-800 shadow-xl">
+                <h3 id="modal-title" class="text-2xl md:text-4xl font-black text-white">Galerisi</h3>
+                <button onclick="closeGallery()" class="text-ice-100 hover:text-accent-500 bg-ice-900 hover:bg-ice-800 w-12 h-12 rounded-full flex items-center justify-center transition-colors shadow-lg" aria-label="Kapat">
+                    <i class="fa-solid fa-xmark text-2xl"></i>
+                </button>
+            </div>
+            
+            <!-- Dynamic Grid Container -->
+            <div id="modal-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 mb-8">
+                <!-- Clean, batched image tiles dynamically inserted here -->
+            </div>
+
+            <!-- Load More Button -->
+            <div id="load-more-container" class="text-center my-6 hidden">
+                <button onclick="loadMoreImages()" class="bg-accent-500 hover:bg-accent-600 text-white font-bold py-3 px-8 rounded-full transition-transform transform hover:scale-105 shadow-lg">
+                    Daha Fazla Fotoğraf Yükle
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fullscreen Lightbox Modal -->
+    <div id="lightbox-modal" class="fixed inset-0 z-[110] bg-black/95 hidden flex items-center justify-center p-4">
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white hover:text-accent-500 text-4xl z-20" aria-label="Kapat">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <button id="lightbox-prev" onclick="stepLightbox(-1)" aria-label="Önceki" class="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 text-white/70 hover:text-accent-500 text-3xl md:text-4xl z-20 transition-colors p-2">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <img id="lightbox-img" src="" alt="Full view" class="max-w-[92vw] max-h-[85vh] object-contain rounded-lg shadow-2xl select-none">
+        <button id="lightbox-next" onclick="stepLightbox(1)" aria-label="Sonraki" class="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 text-white/70 hover:text-accent-500 text-3xl md:text-4xl z-20 transition-colors p-2">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+        <div id="lightbox-counter" class="absolute bottom-4 left-1/2 -translate-x-1/2 text-ice-100 text-sm font-semibold bg-ice-950/70 px-4 py-1 rounded-full"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-black pt-16 pb-8 border-t border-ice-900 relative z-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8 mb-12">
+                
+                <!-- Brand -->
+                <div class="text-center md:text-left">
+                    <a href="#" class="text-3xl font-black text-white tracking-tighter flex items-center justify-center md:justify-start gap-2 mb-2">
+                        <i class="fa-solid fa-snowflake text-ice-500"></i>
+                        SNOWBREAK<span class="text-accent-500">'27</span>
+                    </a>
+                    <p class="text-ice-400 text-sm">Türkiye'nin İlk Üniversite Kış Festivali</p>
+                </div>
+
+                <!-- Social Links -->
+                <div class="flex space-x-6">
+                    <a href="https://www.instagram.com/bounsnowbreak/" target="_blank" rel="noopener noreferrer" class="text-ice-500 hover:text-white transition-colors transform hover:scale-110">
+                        <span class="sr-only">Instagram</span>
+                        <i class="fa-brands fa-instagram text-3xl"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@SportsCommittee1896" target="_blank" rel="noopener noreferrer" class="text-ice-500 hover:text-white transition-colors transform hover:scale-110">
+                        <span class="sr-only">YouTube</span>
+                        <i class="fa-brands fa-youtube text-3xl"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/company/sportscommittee/posts/?feedView=all" target="_blank" rel="noopener noreferrer" class="text-ice-500 hover:text-white transition-colors transform hover:scale-110">
+                        <span class="sr-only">LinkedIn</span>
+                        <i class="fa-brands fa-linkedin text-3xl"></i>
+                    </a>
+                    <a href="https://chat.whatsapp.com/HEGdnFyYoJ6Fsgakgea7E8" target="_blank" rel="noopener noreferrer" class="text-ice-500 hover:text-white transition-colors transform hover:scale-110">
+                        <span class="sr-only">WhatsApp</span>
+                        <i class="fa-brands fa-whatsapp text-3xl"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Integrated Video Square (10% Bigger: max-w-[239px], Infinite Loop) -->
+            <div class="my-10 flex justify-center">
+                <div class="w-full max-w-[239px] aspect-square rounded-2xl overflow-hidden border border-ice-800/80 shadow-2xl bg-black relative">
+                    <video autoplay muted loop playsinline class="w-full h-full object-cover">
+                        <source src="snowbreak.webm" type="video/webm">
+                        Tarayıcınız video etiketini desteklemiyor.
+                    </video>
+                </div>
+            </div>
+            
+            <div class="border-t border-ice-900/50 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-ice-500 text-sm text-center md:text-left">
+                <p>&copy; 2027 Boğaziçi Üniversitesi Spor Kurulu. Tüm hakları saklıdır.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:text-white transition-colors">Gizlilik Politikası</a>
+                    <a href="#" class="hover:text-white transition-colors">Kullanım Şartları</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.remove('bg-transparent', 'py-4');
+                    navbar.classList.add('bg-ice-950', 'py-3', 'shadow-lg', 'border-b', 'border-ice-900');
+                } else {
+                    navbar.classList.add('bg-transparent', 'py-4');
+                    navbar.classList.remove('bg-ice-950', 'py-3', 'shadow-lg', 'border-b', 'border-ice-900');
+                }
+            }, { passive: true });
+
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            const menuLinks = menu.querySelectorAll('a');
+
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+
+            menuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    menu.classList.add('hidden');
+                });
+            });
+
+            const targetDate = new Date("Jan 13, 2027 00:00:00").getTime();
+            
+            const elDays = document.getElementById('days');
+            const elHours = document.getElementById('hours');
+            const elMinutes = document.getElementById('minutes');
+            const elSeconds = document.getElementById('seconds');
+
+            const updateCountdown = () => {
+                const now = new Date().getTime();
+                const distance = targetDate - now;
+
+                let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                if (distance < 0) {
+                    days = 0; hours = 0; minutes = 0; seconds = 0;
+                }
+
+                elDays.innerText = String(days).padStart(2, '0');
+                elHours.innerText = String(hours).padStart(2, '0');
+                elMinutes.innerText = String(minutes).padStart(2, '0');
+                elSeconds.innerText = String(seconds).padStart(2, '0');
+            };
+
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+
+            // ESC & Arrow key shortcuts
+            document.addEventListener('keydown', (e) => {
+                const lightbox = document.getElementById('lightbox-modal');
+                const modal = document.getElementById('gallery-modal');
+
+                if (e.key === 'Escape') {
+                    if (!lightbox.classList.contains('hidden')) closeLightbox();
+                    else if (!modal.classList.contains('hidden')) closeGallery();
+                } else if (!lightbox.classList.contains('hidden')) {
+                    if (e.key === 'ArrowLeft') stepLightbox(-1);
+                    if (e.key === 'ArrowRight') stepLightbox(1);
+                }
+            });
+
+            /* --- Gentle Falling Snow Effect Animation --- */
+            const canvas = document.getElementById('snow-canvas');
+            const ctx = canvas.getContext('2d');
+            const wrapper = document.getElementById('snow-wrapper');
+
+            function resizeSnow() {
+                canvas.width = wrapper.clientWidth;
+                canvas.height = wrapper.clientHeight;
+            }
+            resizeSnow();
+            window.addEventListener('resize', resizeSnow);
+
+            const flakes = [];
+            const flakeCount = 45; // Gentle density
+
+            for (let i = 0; i < flakeCount; i++) {
+                flakes.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    r: Math.random() * 2 + 1, // Soft radius
+                    d: Math.random() * 0.7 + 0.4, // Slower fall speed
+                    opacity: Math.random() * 0.4 + 0.25 // Subtle opacity
+                });
+            }
+
+            function drawSnow() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                for (let i = 0; i < flakeCount; i++) {
+                    const f = flakes[i];
+                    ctx.fillStyle = `rgba(255, 255, 255, ${f.opacity})`;
+                    ctx.beginPath();
+                    ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2, true);
+                    ctx.fill();
+                }
+                updateSnow();
+                requestAnimationFrame(drawSnow);
+            }
+
+            function updateSnow() {
+                for (let i = 0; i < flakeCount; i++) {
+                    const f = flakes[i];
+                    f.y += f.d;
+                    f.x += Math.sin(f.y / 35) * 0.4;
+
+                    if (f.y > canvas.height) {
+                        flakes[i] = {
+                            x: Math.random() * canvas.width,
+                            y: -10,
+                            r: f.r,
+                            d: f.d,
+                            opacity: f.opacity
+                        };
+                    }
+                }
+            }
+            drawSnow();
+        });
+
+        /* --- Optimized Single-Pass Paginated Gallery System --- */
+        let currentGalleryType = '';
+        let currentLoadedIndex = 0;
+        let totalImagesCount = 0;
+        let currentList = [];
+        let currentIndex = 0;
+        const BATCH_SIZE = 12;
+
+        const modal = document.getElementById('gallery-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalGrid = document.getElementById('modal-grid');
+        const loadMoreBtn = document.getElementById('load-more-container');
+
+        const lightbox = document.getElementById('lightbox-modal');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxCounter = document.getElementById('lightbox-counter');
+
+        window.openGallery = function(type) {
+            modalGrid.innerHTML = '';
+            currentGalleryType = type;
+            currentLoadedIndex = 0;
+            currentList = [];
+            
+            const isUludag = type === 'uludag';
+            totalImagesCount = isUludag ? 23 : 15;
+            modalTitle.innerText = (isUludag ? 'Uludağ' : 'Bansko') + ' Galerisi (' + totalImagesCount + ' Fotoğraf)';
+            
+            for (let i = 1; i <= totalImagesCount; i++) {
+                currentList.push(`${type}/${type} (${i}).webp`);
+            }
+
+            modal.classList.remove('hidden');
+            document.body.classList.add('modal-open');
+            modalGrid.scrollTop = 0;
+            
+            loadMoreImages();
+        };
+
+        window.loadMoreImages = function() {
+            const prefix = currentGalleryType;
+            const nextLimit = Math.min(currentLoadedIndex + BATCH_SIZE, totalImagesCount);
+            
+            let batchHtml = '';
+            for(let i = currentLoadedIndex + 1; i <= nextLimit; i++) {
+                const fullImgPath = `${prefix}/${prefix} (${i}).webp`;
+
+                batchHtml += `
+                    <button type="button" onclick="openLightbox(${i - 1})"
+                            class="w-full aspect-square rounded-xl overflow-hidden bg-ice-900 border border-ice-800 shadow-md cursor-pointer group flex items-center justify-center relative focus:outline-none focus:ring-2 focus:ring-accent-500 grid-item-contain">
+                        <img src="${fullImgPath}" width="300" height="300" loading="lazy" decoding="async" fetchpriority="low" alt="${prefix} ${i}" 
+                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 block">
+                    </button>
+                `;
+            }
+            
+            modalGrid.insertAdjacentHTML('beforeend', batchHtml);
+            currentLoadedIndex = nextLimit;
+
+            if(currentLoadedIndex < totalImagesCount) {
+                loadMoreBtn.classList.remove('hidden');
+            } else {
+                loadMoreBtn.classList.add('hidden');
+            }
+        };
+
+        window.closeGallery = function() {
+            modal.classList.add('hidden');
+            document.body.classList.remove('modal-open');
+        };
+
+        window.openLightbox = function(index) {
+            currentIndex = index;
+            updateLightbox();
+            lightbox.classList.remove('hidden');
+            lightbox.classList.add('flex');
+        };
+
+        window.closeLightbox = function() {
+            lightbox.classList.add('hidden');
+            lightbox.classList.remove('flex');
+        };
+
+        window.updateLightbox = function() {
+            lightboxImg.src = currentList[currentIndex];
+            lightboxCounter.textContent = (currentIndex + 1) + ' / ' + currentList.length;
+        };
+
+        window.stepLightbox = function(dir) {
+            currentIndex = (currentIndex + dir + currentList.length) % currentList.length;
+            updateLightbox();
+        };
+    </script>
+</body>
+</html>
